@@ -61,5 +61,7 @@ module Waitstaff
 
     # Fonts
     config.assets.paths << "#{config.root}/app/assets/fonts"
+
+    config.assets.initialize_on_precompile = false
   end
 end
