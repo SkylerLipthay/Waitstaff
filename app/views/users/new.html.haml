@@ -1,0 +1,8 @@
+.twelve.columns
+  %h2 Register
+  %p
+    We just need some basic information to get your account started.
+  = render('shared/error_messages', target: @user)
+.four.columns
+  = form_for(@user, url: account_path) do |f|
+    = render(partial: 'form', object: f)

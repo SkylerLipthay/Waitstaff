@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'icons';
+  src: asset-url('icons.eot?95153263', font);
+  src: asset-url('icons.eot?95153263#iefix', font) format('embedded-opentype'),
+  asset-url('icons.woff?95153263', font) format('woff'),
+  asset-url('icons.ttf?95153263', font) format('truetype'),
+  asset-url('icons.svg?95153263#icons', font) format('svg');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'icons';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.3em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0em;
+}
+
+.icon-login:before { content: '\e740'; }
+.icon-logout:before { content: '\e741'; }
+.icon-user:before { content: '\e742'; }

@@ -1,0 +1,66 @@
+//= require_tree .
+//= require_self
+
+@font-face {
+  font: {
+    family: 'OpenSansRegular';
+    weight: normal;
+    style: normal;
+  }
+
+  src: asset-url('OpenSans-Regular-webfont.eot', font);
+  src: asset-url('OpenSans-Regular-webfont.eot?#iefix', font) format('embedded-opentype'),
+  asset-url('OpenSans-Regular-webfont.woff', font) format('woff'),
+  asset-url('OpenSans-Regular-webfont.ttf', font) format('truetype'),
+  asset-url('OpenSans-Regular-webfont.svg#OpenSansRegular', font) format('svg');
+}
+
+div.container {
+  padding-top: 20px;
+  color: #333;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.flow {
+  margin: 30px 0 20px;
+}
+
+header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+
+  nav {
+    ul {
+      float: right;
+      margin-top: 45px;
+
+      li {
+        display: inline;
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+footer {
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  color: #999;
+  font-size: 12px;
+}
+
+.errors {
+  margin-top: 30px;
+
+  ul {
+    list-style: disc inside;
+     .error {
+      color: #c71031;
+      font-weight: bold;
+      font-size: 13px;
+    }
+  }
+}

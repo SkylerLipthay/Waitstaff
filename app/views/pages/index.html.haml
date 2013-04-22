@@ -1,0 +1,27 @@
+.eleven.columns.alpha
+  %h2 Cater to your restaurant's clientelle
+  %p
+    Waitstaff is a service that allows restaurants to easily extend online
+    ordering options to their customers. By signing up, you can bring your
+    business to the masses and generate a mobile applications for ordering on
+    the go. In addition, Waitstaff provides a simple and complete API for your
+    existing restaurant website to connect to for online ordering and financial
+    management.
+  .flow
+    = image_tag('icon.png', alt: 'From Waitstaff', title: 'From Waitstaff')
+    = image_tag('arrow.png', alt: 'to', title: 'to', style: 'margin: 0 28px 0 17px;')
+    = image_tag('phone.png', alt: 'mobile devices', title: 'mobile devices')
+    = image_tag('arrow.png', alt: 'to', title: 'to', style: 'margin: 0 17px 0 28px;')
+    = image_tag('group.png', alt: 'your customers', title: 'your customers')
+.four.columns.omega.offset-by-one
+  = form_for(:user, url: account_path) do |f|
+    = f.label(:email)
+    = f.text_field(:email)
+    = f.label(:business_name)
+    = f.text_field(:business_name)
+    = f.label(:password)
+    = f.password_field(:password)
+    = f.label(:password_confirmation)
+    = f.password_field(:password_confirmation)
+    %button.full-width{ type: 'submit' }
+      %i.icon-user Sign up for free

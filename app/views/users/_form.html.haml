@@ -1,0 +1,10 @@
+= form.label(:email)
+= form.text_field(:email)
+= form.label(:business_name)
+= form.text_field(:business_name)
+= form.label(:password, form.object.new_record? ? nil : 'Change password')
+= form.password_field(:password)
+= form.label(:password_confirmation)
+= form.password_field(:password_confirmation)
+%button.full-width{ type: 'submit' }
+  %i.icon-user= form.object.new_record? ? 'Sign up for free' : 'Save changes'
