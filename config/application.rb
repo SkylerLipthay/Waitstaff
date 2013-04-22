@@ -63,5 +63,6 @@ module Waitstaff
     config.assets.paths << "#{config.root}/app/assets/fonts"
 
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += %w( .svg )
   end
 end
