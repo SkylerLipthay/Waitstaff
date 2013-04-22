@@ -8,11 +8,11 @@
     existing restaurant website to connect to for online ordering and financial
     management.
   .flow
-    = image_tag('icon.png', alt: 'From Waitstaff', title: 'From Waitstaff')
-    = image_tag('arrow.png', alt: 'to', title: 'to', style: 'margin: 0 28px 0 17px;')
-    = image_tag('phone.png', alt: 'mobile devices', title: 'mobile devices')
-    = image_tag('arrow.png', alt: 'to', title: 'to', style: 'margin: 0 17px 0 28px;')
-    = image_tag('group.png', alt: 'your customers', title: 'your customers')
+    = svg_tag('icon', 'From Waitstaff')
+    = svg_tag('arrow', 'to', style: 'margin: 0 28px 0 17px;')
+    = svg_tag('phone', 'mobile devices')
+    = svg_tag('arrow', 'to', style: 'margin: 0 17px 0 28px;')
+    = svg_tag('group', 'your customers')
 .four.columns.omega.offset-by-one
   = form_for(:user, url: account_path) do |f|
     = f.label(:email)

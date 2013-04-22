@@ -16,8 +16,7 @@
 
 $(document).ready(function() {
   if (Modernizr.svg) {
-    $('img[src*="png"]').attr('src', function() {
-      return $(this).attr('src').replace('.png', '.svg');
-    });
+    $('.-no-svg').hide();
+    $('.-svg').show();
   }
 });
