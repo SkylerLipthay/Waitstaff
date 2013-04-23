@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = t('users.create.success')
+      flash[:success] = t('users.create.success')
       redirect_back_or_default(account_url)
     else
       render(action: :new)
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def update
     @user = @current_user
     if @user.update_attributes(params[:user])
-      flash[:notice] = t('users.update.success')
+      flash[:success] = t('users.update.success')
       redirect_to(account_url)
     else
       render(action: :edit)

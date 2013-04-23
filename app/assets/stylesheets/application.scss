@@ -16,7 +16,7 @@
 }
 
 div.container {
-  padding-top: 20px;
+  padding-top: 30px;
   color: #333;
 
   a {
@@ -46,15 +46,13 @@ header {
 }
 
 footer {
-  padding-top: 20px;
+  padding-top: 30px;
   border-top: 1px solid #ddd;
   color: #999;
   font-size: 12px;
 }
 
 .errors {
-  margin-top: 30px;
-
   ul {
     list-style: disc inside;
      .error {
@@ -62,5 +60,38 @@ footer {
       font-weight: bold;
       font-size: 13px;
     }
+  }
+}
+
+ul.side-nav {
+  li {
+    a {
+      width: 180px;
+      height: 20px;
+      padding: 10px;
+      display: block;
+    }
+
+    a.active {
+      color: #fff;
+      background: lighten(#834594, 15%);
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+    }
+  }
+}
+
+span.flash {
+  .notice {
+    color: #107ec7;
+  }
+
+  .success {
+    color: #7bc710;
+  }
+
+  .error {
+    color: #c71031;
   }
 }

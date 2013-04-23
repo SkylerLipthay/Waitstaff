@@ -20,9 +20,6 @@
           %ul
             - if current_user
               %li
-                %a{ href: edit_account_path }
-                  %i.icon-user Settings
-              %li
                 = link_to(user_session_path, :method => :delete) do
                   %i.icon-logout Logout
             - else
@@ -32,6 +29,25 @@
               %li
                 %a{ href: new_user_session_path }
                   %i.icon-login Login
-      = yield
+      - if !flash.empty?
+        .sixteen.columns
+          %ul
+            - flash.each do |key, msg|
+              %li
+                %span.flash
+                  %i.icon-info-circle{ class: key }= msg
+      - if current_user
+        .four.columns.alpha
+          %ul.side-nav
+            %li
+              %a{ href: account_path, class: ('active' if current_controller?('users', 'show')) }
+                %i.icon-home Dashboard
+            %li
+              %a{ href: edit_account_path, class: ('active' if current_controller?('users', ['edit', 'update'])) }
+                %i.icon-user Account
+        .twelve.columns.omega
+          = yield
+      - else
+        = yield
       %footer.sixteen.columns
         Waitstaff is a service made with love. Thank you for using, cheers!

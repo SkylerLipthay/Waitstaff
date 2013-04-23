@@ -20,4 +20,16 @@ module ApplicationHelper
     return image_tag("#{image_name}.png", png_options) + 
            image_tag("#{image_name}.svg", svg_options)
   end
+
+  def current_controller?(controller, actions)
+    return false if controller != params[:controller]
+
+    if actions.kind_of? String
+      return actions == params[:action]
+    elsif actions.kind_of? Array
+      return actions.include? params[:action]
+    end
+
+    false
+  end
 end

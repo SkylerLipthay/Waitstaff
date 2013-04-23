@@ -30,7 +30,6 @@ class ApplicationController < ActionController::Base
   def require_no_user
     if current_user
       store_location
-      flash[:notice] = t('application.require_no_user')
       redirect_to(account_url)
       return false
     end

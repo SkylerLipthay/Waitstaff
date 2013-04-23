@@ -27,6 +27,12 @@
   margin-left: 0em;
 }
 
-.icon-login:before { content: '\e740'; }
-.icon-logout:before { content: '\e741'; }
-.icon-user:before { content: '\e742'; }
+.icon-home:before { content: '\e702'; } /* '' */
+.icon-cog:before { content: '\e703'; } /* '' */
+.icon-info-circle:before { content: '\e701'; } /* '' */
+.icon-login:before { content: '\e705'; } /* '' */
+.icon-logout:before { content: '\e706'; } /* '' */
+.icon-food:before { content: '\e708'; } /* '' */
+.icon-user:before { content: '\e700'; } /* '' */
+.icon-calendar:before { content: '\e704'; } /* '' */
+.icon-clock:before { content: '\e707'; } /* '' */
