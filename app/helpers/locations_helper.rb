@@ -61,4 +61,32 @@ module LocationsHelper
       self.us_states[index][1]
     end
   end
+
+  def self.delivery_fee_types
+    [
+      ['Fixed rate', 'fixed'],
+      ['Percentage of subtotal', 'percent'],
+      ['Distance based', 'distance']
+    ]
+  end
+
+  def self.delivery_fee_type_values
+    Array.new(self.delivery_fee_types.length) do |index|
+      self.delivery_fee_types[index][1]
+    end
+  end
+
+  def self.order_options
+    [
+      ['Delivery & Takeout', 'both'],
+      ['Delivery only', 'delivery'],
+      ['Takeout only', 'takeout']
+    ]
+  end
+
+  def self.order_option_values
+    Array.new(self.order_options.length) do |index|
+      self.order_options[index][1]
+    end
+  end
 end

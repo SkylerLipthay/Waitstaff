@@ -3,3 +3,10 @@
   %li
     %a{ href: new_location_path }
       %i.icon-plus New location
+%ul
+  - @locations.each do |location|
+    %li
+      = location.address
+.pagination
+  .page_info= page_entries_info @locations
+  = will_paginate @locations

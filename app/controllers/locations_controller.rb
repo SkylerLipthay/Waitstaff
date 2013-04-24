@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
 
   def index
     order = 'state ASC, city ASC, address ASC'
-    @locations = Location.page(params[:page]).order(order)
+    @locations = Location.page(params[:page]).order(order).per_page(1)
   end
 
   def new
@@ -11,7 +11,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(params[:location])
+    @location = @current_user.locations.new(params[:location])
     if @location.save
       flash[:success] = t('locations.create.success')
       redirect_back_or_default(locations_url)

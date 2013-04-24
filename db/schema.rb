@@ -11,17 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424070144) do
+ActiveRecord::Schema.define(:version => 20130424102614) do
 
   create_table "locations", :force => true do |t|
-    t.integer  "user_id",      :null => false
-    t.string   "address",      :null => false
-    t.string   "city",         :null => false
-    t.string   "state",        :null => false
-    t.string   "zip_code",     :null => false
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.string   "phone_number"
+    t.integer  "user_id",                                                              :null => false
+    t.string   "address",                                                              :null => false
+    t.string   "city",                                                                 :null => false
+    t.string   "state",                                                                :null => false
+    t.string   "zip_code",                                                             :null => false
+    t.datetime "created_at",                                                           :null => false
+    t.datetime "updated_at",                                                           :null => false
+    t.string   "phone"
+    t.string   "website"
+    t.string   "email"
+    t.decimal  "sales_tax",         :precision => 3, :scale => 3, :default => 0.0,     :null => false
+    t.decimal  "minimum_total",     :precision => 8, :scale => 2, :default => 0.0,     :null => false
+    t.decimal  "delivery_fee",      :precision => 8, :scale => 3, :default => 0.0,     :null => false
+    t.string   "delivery_fee_type",                               :default => "fixed", :null => false
+    t.string   "order_options",                                   :default => "both",  :null => false
+    t.decimal  "max_distance",      :precision => 8, :scale => 3, :default => 5.0,     :null => false
   end
 
   create_table "users", :force => true do |t|

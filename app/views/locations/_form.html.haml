@@ -6,5 +6,63 @@
 = form.select(:state, LocationsHelper::us_states)
 = form.label(:zip_code)
 = form.text_field(:zip_code)
+= form.label(:phone)
+= form.text_field(:phone)
+= form.label(:website)
+= form.text_field(:website)
+= form.label(:email)
+= form.text_field(:email)
+= form.label(:sales_tax, 'Sales tax (%)')
+= form.text_field(:sales_tax)
+= form.label(:minimum_total, 'Minimum order subtotal ($)')
+= form.text_field(:minimum_total)
+= form.label(:order_options, 'Order options')
+= form.select(:order_options, LocationsHelper::order_options)
+#_location_delivery_options
+  = form.label(:delivery_fee_type, 'Delivery fee calculation mode')
+  = form.select(:delivery_fee_type, LocationsHelper::delivery_fee_types)
+  = form.label(:delivery_fee, 'Fixed delivery fee ($)')
+  = form.text_field(:delivery_fee)
+  = form.label(:max_distance, 'Delivery distance radius (miles)')
+  = form.text_field(:max_distance)
 %button.full-width{ type: 'submit' }
   %i.icon-plus Create location
+:javascript
+  function updateDeliveryFeeLabel() {
+    var newText;
+
+    switch ($('#location_delivery_fee_type').val()) {
+      case 'fixed':
+        newText = 'Delivery fee ($)';
+        break;
+
+      case 'percent':
+        newText = 'Delivery fee (%)';
+        break;
+
+      case 'distance':
+        newText = 'Delivery fee ($/mile)';
+        break;
+    }
+
+    $('label[for=\'location_delivery_fee\']').text(newText);
+  }
+
+  function updateDeliveryOptions() {
+    if ($('#location_order_options').val() == 'takeout') {
+      $('#_location_delivery_options').hide();
+    } else {
+      $('#_location_delivery_options').show();
+    }
+  }
+
+  $(document).ready(updateDeliveryFeeLabel);
+  $(document).ready(updateDeliveryOptions);
+
+  $('#location_order_options').change(function(event) {
+    updateDeliveryOptions();
+  });
+
+  $('#location_delivery_fee_type').change(function(event) {
+    updateDeliveryFeeLabel();
+  });

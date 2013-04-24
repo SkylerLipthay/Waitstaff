@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :locations
+  
   attr_accessible :email, :business_name, :password, :password_confirmation
 
   validates_presence_of :business_name
