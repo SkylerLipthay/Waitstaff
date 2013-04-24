@@ -13,7 +13,7 @@
     = javascript_include_tag('application')
   %body
     .container
-      %header.sixteen.columns
+      %header.sixteen.columns.alpha
         .eight.columns.alpha
           %h1= link_to(svg_tag('logo', 'Waitstaff'), root_path)
         %nav.eight.columns.omega
@@ -44,10 +44,13 @@
                 %i.icon-home Dashboard
             %li
               %a{ href: edit_account_path, class: ('active' if current_controller?('users', ['edit', 'update'])) }
-                %i.icon-user Account
+                %i.icon-cog Account
+            %li
+              %a{ href: locations_path, class: ('active' if current_controller?('locations')) }
+                %i.icon-location Locations
         .twelve.columns.omega
           = yield
       - else
         = yield
-      %footer.sixteen.columns
+      %footer.sixteen.columns.alpha
         Waitstaff is a service made with love. Thank you for using, cheers!

@@ -25,7 +25,7 @@ div.container {
 }
 
 .flow {
-  margin: 30px 0 20px;
+  margin: 30px 0 15px;
 }
 
 header {
@@ -50,6 +50,7 @@ footer {
   border-top: 1px solid #ddd;
   color: #999;
   font-size: 12px;
+  margin-top: 15px;
 }
 
 .errors {
@@ -70,11 +71,12 @@ ul.side-nav {
       height: 20px;
       padding: 10px;
       display: block;
+      color: #9dcd5b;
     }
 
     a.active {
       color: #fff;
-      background: lighten(#834594, 15%);
+      background: #9dcd5b;
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
       border-radius: 5px;

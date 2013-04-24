@@ -23,3 +23,8 @@ en:
       success: 'Account created successfully'
     update:
       success: 'Account details updated'
+  locations:
+    create:
+      success: 'Location created successfully'
+    update:
+      success: 'Location details updated'

@@ -3,4 +3,5 @@ Waitstaff::Application.routes.draw do
 
   resource :user_session
   resource :account, :controller => 'users'
+  resources :locations
 end
