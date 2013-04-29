@@ -1,0 +1,27 @@
+%h2
+  = @option_group.name
+  options
+%ul.add-bottom
+  %li
+    %a{ href: option_groups_path }
+      %i.icon-left-open Back to all option groups
+  %li
+    %a{ href: new_option_group_option_path(@option_group.id) }
+      %i.icon-plus New option
+%table
+  %thead
+    %tr
+      %th Name
+      %th Options
+  %tbody
+    - @options.each do |option|
+      %tr
+        %td= option.name
+        %td.options
+          = link_to(edit_option_group_option_path(@option_group.id, option.id)) do
+            %i.icon-edit Edit
+          = link_to(option_group_option_path(@option_group.id, option.id), method: :delete, confirm: 'This action is irreversible. Are you sure you would like to delete this item?') do
+            %i.icon-trash Delete
+.pagination
+  .page_info= page_entries_info @options
+  = will_paginate @options

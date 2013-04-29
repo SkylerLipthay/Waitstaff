@@ -1,0 +1,8 @@
+%h2 Edit location
+%ul.add-bottom
+  %li
+    %a{ href: locations_path }
+      %i.icon-left-open Back to all locations
+= render('shared/error_messages', target: @location)
+= form_for(@location, url: location_path(@location.id)) do |f|
+  = render(partial: 'form', object: f)

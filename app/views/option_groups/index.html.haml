@@ -1,0 +1,28 @@
+%h2 Option groups
+%p.small
+  You can allow customers to select certain options based on their ordered menu item.
+  Add reusable option groups such as a group called "sauces" with options like
+  "ranch" and "mustard" to be added to the "hamburger" item.
+%ul.add-bottom
+  %li
+    %a{ href: new_option_group_path }
+      %i.icon-plus New option group
+%table
+  %thead
+    %tr
+      %th Name
+      %th Options
+  %tbody
+    - @option_groups.each do |option_group|
+      %tr
+        %td= option_group.name
+        %td.options
+          = link_to(option_group_options_path(option_group.id)) do
+            %i.icon-plus-squared Options
+          = link_to(edit_option_group_path(option_group.id)) do
+            %i.icon-edit Edit
+          = link_to(option_group_path(option_group.id), method: :delete, confirm: 'This action is irreversible. Are you sure you would like to delete this item?') do
+            %i.icon-trash Delete
+.pagination
+  .page_info= page_entries_info @option_groups
+  = will_paginate @option_groups

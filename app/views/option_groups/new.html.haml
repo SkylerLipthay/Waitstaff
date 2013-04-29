@@ -1,0 +1,8 @@
+%h2 New option group
+%ul.add-bottom
+  %li
+    %a{ href: option_groups_path }
+      %i.icon-left-open Back to all option groups
+= render('shared/error_messages', target: @option_group)
+= form_for(@option_group, url: option_groups_path) do |f|
+  = render(partial: 'form', object: f)

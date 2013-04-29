@@ -1,0 +1,27 @@
+%h2 Menu Categories
+%p.small
+  Organize your online menu's items into categories. For example, "chicken club" and "BLT" could be items under the
+  "sandwich" category.
+%ul.add-bottom
+  %li
+    %a{ href: new_category_path }
+      %i.icon-plus New category
+%table
+  %thead
+    %tr
+      %th Name
+      %th Options
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %td= category.name
+        %td.options
+          = link_to(category_items_path(category.id)) do
+            %i.icon-food Items
+          = link_to(edit_category_path(category.id)) do
+            %i.icon-edit Edit
+          = link_to(category_path(category.id), method: :delete, confirm: 'This action is irreversible. Are you sure you would like to delete this item?') do
+            %i.icon-trash Delete
+.pagination
+  .page_info= page_entries_info @categories
+  = will_paginate @categories

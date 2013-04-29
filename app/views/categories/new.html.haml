@@ -1,0 +1,8 @@
+%h2 New category
+%ul.add-bottom
+  %li
+    %a{ href: categories_path }
+      %i.icon-left-open Back to all categories
+= render('shared/error_messages', target: @category)
+= form_for(@category, url: categories_path) do |f|
+  = render(partial: 'form', object: f)

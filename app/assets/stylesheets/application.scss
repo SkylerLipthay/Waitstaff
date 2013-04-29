@@ -50,7 +50,7 @@ footer {
   border-top: 1px solid #ddd;
   color: #999;
   font-size: 12px;
-  margin-top: 15px;
+  margin: 15px 0 30px 0;
 }
 
 .errors {
@@ -100,4 +100,127 @@ span.flash {
   .error {
     color: #c71031;
   }
+}
+
+.pagination {
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 15px;
+
+  .page_info {
+    margin-bottom: 5px;
+  }
+
+  a, span, em {
+    padding: 4px;
+  }
+
+  .disabled {
+    color: #999;
+  }
+
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .previous_page {
+    margin-right: 10px;
+  }
+
+  .next_page {
+    margin-left: 10px;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+table th, table td {
+  padding: 10px 10px 9px;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: left;
+}
+
+table td {
+  vertical-align: top;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: solid 1px #ddd;
+}
+
+table.condensed th, table.condensed td {
+  padding: 5px 5px 4px;
+}
+
+table.bordered {
+  border-collapse: separate;
+  border: solid 1px #ddd;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+table.bordered th + th,
+table.bordered th + td,
+table.bordered td + td {
+  border-left: solid 1px #ddd;
+}
+
+.zebra-striped tbody tr:nth-child(odd) td,
+.zebra-striped tbody tr:nth-child(odd) th {
+  background: #f5f5f5;
+}
+
+td.options {
+  a {
+    margin-right: 10px;
+  }
+
+  a:last-child {
+    margin-right: 0;
+  }
+}
+
+p.small {
+  font-size: 13px;
+}
+
+p.description {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+table {
+  tr {
+    td:last-child {
+      width: 40%;
+    }
+  }
+}
+
+.checkbox-list {
+  width: 210px;
+  max-height: 100px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  padding: 6px 4px;
+  outline: none;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font: 13px "OpenSansRegular", sans-serif;
+  color: #777;
+  margin: 0;
+  max-width: 100%;
+  background: #fff;
 }

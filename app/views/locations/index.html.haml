@@ -1,12 +1,30 @@
 %h2 Locations
-%ul
+%p.small
+  Manage your restaurant locations and their properties below.
+%ul.add-bottom
   %li
     %a{ href: new_location_path }
       %i.icon-plus New location
-%ul
-  - @locations.each do |location|
-    %li
-      = location.address
+%table
+  %thead
+    %tr
+      %th Address
+      %th City
+      %th Options
+  %tbody
+    - @locations.each do |location|
+      %tr
+        %td= location.address
+        %td= "#{location.city}, #{location.state}"
+        %td.options
+          = link_to('#') do
+            %i.icon-user Login
+          = link_to(location_path(location.id)) do
+            %i.icon-food Menu
+          = link_to(edit_location_path(location.id)) do
+            %i.icon-edit Edit
+          = link_to(location_path(location.id), method: :delete, confirm: 'This action is irreversible. Are you sure you would like to delete this item?') do
+            %i.icon-trash Delete
 .pagination
   .page_info= page_entries_info @locations
   = will_paginate @locations

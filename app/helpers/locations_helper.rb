@@ -78,7 +78,7 @@ module LocationsHelper
 
   def self.order_options
     [
-      ['Delivery & Takeout', 'both'],
+      ['Delivery & takeout', 'both'],
       ['Delivery only', 'delivery'],
       ['Takeout only', 'takeout']
     ]

@@ -1,9 +1,11 @@
 class Location < ActiveRecord::Base
   belongs_to :user
+  has_and_belongs_to_many :items
 
   attr_accessible :address, :city, :state, :zip_code, :phone, :website,
-    :email, :sales_tax, :minimum_total, :delivery_fee, :delivery_fee_type,
-    :order_options, :max_distance
+    :sales_tax, :minimum_total, :delivery_fee, :delivery_fee_type,
+    :order_options, :max_distance, :item_ids, :login, :password,
+    :password_confirmation
 
   validates_presence_of :address, :city, :state
   validates_uniqueness_of :address, scope: [:city, :state, :zip_code]
@@ -18,5 +20,10 @@ class Location < ActiveRecord::Base
   validates_numericality_of :delivery_fee, greater_than_or_equal_to: 0.0
   validates_numericality_of :max_distance, greater_than_or_equal_to: 0.0
   validates_plausible_phone :phone
-  validates_format_of :email, :with => Authlogic::Regex.email, allow_blank: true
+
+  acts_as_authentic do |c|
+    c.validates_length_of_password_confirmation_field_options = { minimum: 0 }
+    c.session_class = LocationSession
+    c.maintain_sessions = false
+  end
 end

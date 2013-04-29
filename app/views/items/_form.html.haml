@@ -1,0 +1,24 @@
+= form.label(:name)
+= form.text_field(:name)
+= form.label(:description)
+%p.description Optional
+= form.text_field(:description)
+= form.label(:price, 'Price ($)')
+= form.text_field(:price, value: number_with_precision(@item.price, precision: 2))
+= form.label(:order_options, 'Order options')
+= form.select(:order_options, ItemsHelper::order_options)
+- if current_user.option_groups.count > 0
+  %fieldset
+    %legend Available options
+    %p.description Customers can specify item extras according to the option groups selected below
+    .checkbox-list
+      - for option_group in current_user.option_groups.order('name ASC')
+        %label
+          = check_box_tag 'item[option_group_ids][]', option_group.id, @item.option_groups.include?(option_group)
+          %span
+            = option_group.name
+%button.full-width{ type: 'submit' }
+  - if form.object.new_record?
+    %i.icon-plus Create item
+  - else
+    %i.icon-edit Save changes

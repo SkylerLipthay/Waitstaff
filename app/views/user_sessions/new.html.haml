@@ -1,9 +1,9 @@
-.twelve.columns
+.twelve.columns.alpha
   %h2 Login
   %p
     Provide your account details to the right.
   = render('shared/error_messages', target: @user_session)
-.four.columns
+.four.columns.omega
   = form_for(@user_session, url: user_session_path) do |f|
     = f.label(:email)
     = f.text_field(:email)

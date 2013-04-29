@@ -53,21 +53,21 @@
     .container .two-thirds.column               { width: 620px; }
 
     /* Offsets */
-    .container .offset-by-one                   { padding-left: 70px;  }
-    .container .offset-by-two                   { padding-left: 130px; }
-    .container .offset-by-three                 { padding-left: 190px; }
-    .container .offset-by-four                  { padding-left: 250px; }
-    .container .offset-by-five                  { padding-left: 310px; }
-    .container .offset-by-six                   { padding-left: 350px; }
-    .container .offset-by-seven                 { padding-left: 430px; }
-    .container .offset-by-eight                 { padding-left: 490px; }
-    .container .offset-by-nine                  { padding-left: 550px; }
-    .container .offset-by-ten                   { padding-left: 610px; }
-    .container .offset-by-eleven                { padding-left: 670px; }
-    .container .offset-by-twelve                { padding-left: 730px; }
-    .container .offset-by-thirteen              { padding-left: 790px; }
-    .container .offset-by-fourteen              { padding-left: 850px; }
-    .container .offset-by-fifteen               { padding-left: 910px; }
+    .container .offset-by-one                   { padding-left: 60px;  }
+    .container .offset-by-two                   { padding-left: 120px; }
+    .container .offset-by-three                 { padding-left: 180px; }
+    .container .offset-by-four                  { padding-left: 240px; }
+    .container .offset-by-five                  { padding-left: 300px; }
+    .container .offset-by-six                   { padding-left: 340px; }
+    .container .offset-by-seven                 { padding-left: 420px; }
+    .container .offset-by-eight                 { padding-left: 480px; }
+    .container .offset-by-nine                  { padding-left: 540px; }
+    .container .offset-by-ten                   { padding-left: 600px; }
+    .container .offset-by-eleven                { padding-left: 660px; }
+    .container .offset-by-twelve                { padding-left: 720px; }
+    .container .offset-by-thirteen              { padding-left: 780px; }
+    .container .offset-by-fourteen              { padding-left: 840px; }
+    .container .offset-by-fifteen               { padding-left: 900px; }
 
 
 

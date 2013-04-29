@@ -3,7 +3,6 @@ class AppendLocations < ActiveRecord::Migration
     change_table :locations do |t|
       t.string :phone
       t.string :website
-      t.string :email
       t.decimal :sales_tax, precision: 3, scale: 3, null: false, default: 0.0
       t.decimal :minimum_total, precision: 8, scale: 2, null: false, default: 0.0
       t.decimal :delivery_fee, precision: 8, scale: 3, null: false, default: 0.0

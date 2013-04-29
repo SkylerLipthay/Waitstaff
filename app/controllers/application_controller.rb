@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user,
+    :current_restaurant_session, :current_restaurant
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to(root_url, alert: exception.message)
@@ -42,5 +43,30 @@ class ApplicationController < ActionController::Base
   def redirect_back_or_default(default)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
+  end
+
+  def current_restaurant_session
+    return @current_restaurant_session if defined?(@current_restaurant_session)
+    @current_restaurant_session = LocationSession.find
+  end
+
+  def current_restaurant
+    return @current_restaurant if defined?(@current_restaurant)
+    @current_restaurant = current_restaurant_session && current_restaurant_session.record
+  end
+
+  def require_restaurant
+    unless current_restaurant
+      flash[:notice] = t('application.require_restaurant')
+      redirect_to(control_panel_url)
+      return false
+    end
+  end
+
+  def require_no_restaurant
+    if current_restaurant
+      redirect_to(restaurant_url)
+      return false
+    end
   end
 end

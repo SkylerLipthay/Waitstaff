@@ -1,0 +1,61 @@
+%h2 Location menu
+%p.remove-bottom= @location.address
+%p= "#{@location.city}, #{@location.state}"
+%ul.add-bottom
+  %li
+    %a{ href: locations_path }
+      %i.icon-left-open Back to all locations
+- if current_user.items.count == 0
+  %p.small
+    Add menu items first before creating a menu item blacklist.
+- else
+  %p.small
+    All menu items are enabled at all locations by default. To remove certain
+    items from this location, search for items and categories to blacklist
+    below.
+  = render('shared/error_messages', target: @location)
+  .__js{style: 'display: none;'}
+    %label{for: '__filter'} Item search
+    %input{type: 'text', id: '__filter'}
+  = form_for(@location, url: location_path(@location.id)) do |f|
+    %fieldset
+      %legend Blacklisted items
+      .checkbox-list
+        .none{style: 'display: none;'} No items found
+        - for item in current_user.items.order('name ASC')
+          %label
+            = check_box_tag 'location[item_ids][]', item.id, @location.items.include?(item)
+            %span
+              = item.name
+    %button.full-width{ type: 'submit' }
+      %i.icon-edit Save changes
+:javascript
+  $(document).ready(function() {
+    $('.__js').show();
+  });
+
+  $.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+  });
+
+  $('#__filter').keyup(function(event) {
+    var all = $('.checkbox-list span');
+    var contains = $('.checkbox-list span:contains(\'' + $('#__filter').val() + '\')');
+
+    if (contains.length == 0) {
+      $('.checkbox-list .none').show();
+    } else {
+      $('.checkbox-list .none').hide();
+    }
+
+    if ($('#__filter').val().length == 0) {
+      all.parent().show();
+      $('.checkbox-list .none').hide();
+      return;
+    }
+
+    all.parent().hide();
+    contains.parent().show();
+  });

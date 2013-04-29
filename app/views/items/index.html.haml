@@ -1,0 +1,27 @@
+%h2
+  = @category.name
+  items
+%ul.add-bottom
+  %li
+    %a{ href: categories_path }
+      %i.icon-left-open Back to all categories
+  %li
+    %a{ href: new_category_item_path(@category.id) }
+      %i.icon-plus New item
+%table
+  %thead
+    %tr
+      %th Name
+      %th Options
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td= item.name
+        %td.options
+          = link_to(edit_category_item_path(@category.id, item.id)) do
+            %i.icon-edit Edit
+          = link_to(category_item_path(@category.id, item.id), method: :delete, confirm: 'This action is irreversible. Are you sure you would like to delete this item?') do
+            %i.icon-trash Delete
+.pagination
+  .page_info= page_entries_info @items
+  = will_paginate @items

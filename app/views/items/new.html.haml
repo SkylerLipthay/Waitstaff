@@ -1,0 +1,8 @@
+%h2 New item
+%ul.add-bottom
+  %li
+    %a{ href: category_items_path(@category.id) }
+      %i.icon-left-open Back to all items
+= render('shared/error_messages', target: @item)
+= form_for(@item, url: category_items_path(@category.id)) do |f|
+  = render(partial: 'form', object: f)

@@ -2,6 +2,10 @@ en:
   pages:
     index:
       title: 'Waitstaff'
+  activerecord:
+    attributes:
+      location:
+        login: 'Username'
   authlogic:
     error_messages:
       login_blank: 'can not be blank'
@@ -16,15 +20,88 @@ en:
       not_approved: 'Your account is not approved'
       no_authentication_details: 'You did not provide any details for authentication'
       general_credentials_error: 'Login/password combination is not valid'
+    attributes:
+      location_session:
+        login: 'Username'
   application:
     require_user: 'You must be logged in to access this page'
+    require_restaurant: 'You must be logged in to access this page'
+  user_sessions:
+    new:
+      title: 'Login'
   users:
+    new:
+      title: 'Register'
     create:
       success: 'Account created successfully'
+    edit:
+      title: 'Account'
     update:
       success: 'Account details updated'
+    show:
+      title: 'Dashboard'
   locations:
+    index:
+      title: 'Locations'
+    new:
+      'New location'
     create:
       success: 'Location created successfully'
+    edit:
+      'Edit location'
     update:
       success: 'Location details updated'
+    destroy:
+      success: 'Location destroyed'
+  option_groups:
+    index:
+      title: 'Option groups'
+    new:
+      'New option group'
+    create:
+      success: 'Option group created successfully'
+    edit:
+      'Edit option group'
+    update:
+      success: 'Option group details updated'
+    destroy:
+      success: 'Option group destroyed'
+  options:
+    index:
+      title: 'Options'
+    new:
+      'New option'
+    create:
+      success: 'Option created successfully'
+    edit:
+      'Edit option'
+    update:
+      success: 'Option details updated'
+    destroy:
+      success: 'Option destroyed'
+  categories:
+    index:
+      title: 'Menu Categories'
+    new:
+      'New category'
+    create:
+      success: 'Category created successfully'
+    edit:
+      'Edit category'
+    update:
+      success: 'Category details updated'
+    destroy:
+      success: 'Category destroyed'
+  items:
+    index:
+      title: 'Menu Items'
+    new:
+      'New item'
+    create:
+      success: 'Item created successfully'
+    edit:
+      'Edit item'
+    update:
+      success: 'Item details updated'
+    destroy:
+      success: 'Item destroyed'

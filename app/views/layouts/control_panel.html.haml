@@ -1,0 +1,40 @@
+!!!
+%html
+  %head
+    %meta{ charset:'utf-8' }
+    %meta{ author: 'Skytroniks' }
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' }
+    %title= page_title
+    = stylesheet_link_tag('application')
+    = javascript_include_tag('application')
+  %body
+    .container
+      %header.sixteen.columns.alpha
+        .eight.columns.alpha
+          %h1
+            = link_to(svg_tag('logo', 'Waitstaff'), current_restaurant ? restaurant_path : root_path)
+        %nav.eight.columns.omega
+          %ul
+            - if current_restaurant
+              %li
+                = link_to(control_panel_path, :method => :delete) do
+                  %i.icon-logout Logout
+            - if current_user
+              %li
+                = link_to(account_path) do
+                  %i.icon-user Dashboard
+      - if !flash.empty?
+        .sixteen.columns
+          %ul.flashes
+            - flash.each do |key, msg|
+              %li
+                %span.flash
+                  %i.icon-info-circle{ class: key }= msg
+      - if current_restaurant
+        .four.columns.alpha
+        .twelve.columns.omega
+          = yield
+      - else
+        = yield
+      %footer.sixteen.columns.alpha
+        Waitstaff is a service made with love. Thank you for using, cheers!

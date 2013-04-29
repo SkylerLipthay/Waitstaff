@@ -1,0 +1,10 @@
+= form.label(:name)
+= form.text_field(:name)
+= form.label(:description)
+%p.description Optional
+= form.text_field(:description)
+%button.full-width{ type: 'submit' }
+  - if form.object.new_record?
+    %i.icon-plus Create category
+  - else
+    %i.icon-edit Save changes

@@ -1,0 +1,12 @@
+= form.label(:name)
+= form.text_field(:name)
+= form.label(:description)
+%p.description Optional
+= form.text_field(:description)
+= form.label(:extra, 'Extra cost ($)')
+= form.text_field(:extra, value: number_with_precision(@option.extra, precision: 2))
+%button.full-width{ type: 'submit' }
+  - if form.object.new_record?
+    %i.icon-plus Create option
+  - else
+    %i.icon-edit Save changes

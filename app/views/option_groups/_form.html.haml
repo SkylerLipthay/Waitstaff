@@ -1,0 +1,10 @@
+= form.label(:name)
+= form.text_field(:name)
+= form.label(:max_selection, 'Maximum selection count')
+%p.description Specify the amount of options a customer can select from this group on one item
+= form.select(:max_selection, OptionGroupsHelper::max_selection_options)
+%button.full-width{ type: 'submit' }
+  - if form.object.new_record?
+    %i.icon-plus Create option group
+  - else
+    %i.icon-edit Save changes

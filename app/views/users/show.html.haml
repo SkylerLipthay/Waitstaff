@@ -1,1 +1,5 @@
-%h2 Dashboard
+%h2= current_user.business_name
+%ul
+  %li= pluralize(current_user.locations.count, 'location')
+  %li= pluralize(current_user.categories.count, 'menu category')
+  %li= pluralize(current_user.items.count, 'menu item')

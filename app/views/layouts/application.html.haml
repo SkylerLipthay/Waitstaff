@@ -4,18 +4,15 @@
     %meta{ charset:'utf-8' }
     %meta{ author: 'Skytroniks' }
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' }
-    = # %link{ href: 'favicon.ico', rel: 'shortcut icon' }
-    = # %link{ href: 'apple-touch-icon.png', rel: 'apple-touch-icon' }
-    = # %link{ href: 'apple-touch-icon-72x72.png', rel: 'apple-touch-icon', sizes: '72x72' }
-    = # %link{ href: 'apple-touch-icon-114x114.png', rel: 'apple-touch-icon', sizes: '114x114' }
-    %title= @title
+    %title= page_title
     = stylesheet_link_tag('application')
     = javascript_include_tag('application')
   %body
     .container
       %header.sixteen.columns.alpha
         .eight.columns.alpha
-          %h1= link_to(svg_tag('logo', 'Waitstaff'), root_path)
+          %h1
+            = link_to(svg_tag('logo', 'Waitstaff'), root_path)
         %nav.eight.columns.omega
           %ul
             - if current_user
@@ -29,6 +26,9 @@
               %li
                 %a{ href: new_user_session_path }
                   %i.icon-login Login
+            %li
+              %a{ href: control_panel_path }
+                %i.icon-desktop Restaurant Control
       - if !flash.empty?
         .sixteen.columns
           %ul.flashes
@@ -48,6 +48,12 @@
             %li
               %a{ href: locations_path, class: ('active' if current_controller?('locations')) }
                 %i.icon-location Locations
+            %li
+              %a{ href: categories_path, class: ('active' if current_controller?('categories') || current_controller?('items')) }
+                %i.icon-food Menu
+            %li
+              %a{ href: option_groups_path, class: ('active' if current_controller?('option_groups') || current_controller?('options')) }
+                %i.icon-list-alt Item options
         .twelve.columns.omega
           = yield
       - else

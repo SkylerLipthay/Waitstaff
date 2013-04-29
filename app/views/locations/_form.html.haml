@@ -1,3 +1,14 @@
+= form.label(:login)
+%p.description This username will be used to login to the restaurant control panel
+= form.text_field(:login)
+= form.label(:password)
+- if !form.object.new_record?
+  %p.description Optional (only set to change password)
+= form.password_field(:password)
+= form.label(:password_confirmation)
+- if !form.object.new_record?
+  %p.description Optional (only set to change password)
+= form.password_field(:password_confirmation)
 = form.label(:address)
 = form.text_field(:address)
 = form.label(:city)
@@ -9,24 +20,27 @@
 = form.label(:phone)
 = form.text_field(:phone)
 = form.label(:website)
+%p.description Optional
 = form.text_field(:website)
-= form.label(:email)
-= form.text_field(:email)
 = form.label(:sales_tax, 'Sales tax (%)')
 = form.text_field(:sales_tax)
 = form.label(:minimum_total, 'Minimum order subtotal ($)')
-= form.text_field(:minimum_total)
+= form.text_field(:minimum_total, value: number_with_precision(@location.minimum_total, precision: 2))
 = form.label(:order_options, 'Order options')
 = form.select(:order_options, LocationsHelper::order_options)
 #_location_delivery_options
   = form.label(:delivery_fee_type, 'Delivery fee calculation mode')
   = form.select(:delivery_fee_type, LocationsHelper::delivery_fee_types)
   = form.label(:delivery_fee, 'Fixed delivery fee ($)')
-  = form.text_field(:delivery_fee)
+  = form.text_field(:delivery_fee, value: @location.delivery_fee_type == 'percent' ? @location.delivery_fee : number_with_precision(@location.delivery_fee, precision: 2))
   = form.label(:max_distance, 'Delivery distance radius (miles)')
+  %p.description We won't allow deliveries outside a specified radius from your restaurant
   = form.text_field(:max_distance)
 %button.full-width{ type: 'submit' }
-  %i.icon-plus Create location
+  - if form.object.new_record?
+    %i.icon-plus Create location
+  - else
+    %i.icon-edit Save changes
 :javascript
   function updateDeliveryFeeLabel() {
     var newText;

@@ -1,0 +1,18 @@
+.twelve.columns.alpha
+  %h2 Restaurant Control Panel Login
+  %p
+    At this point, you're at the restaurant and ready to start accepting
+    online orders. Provide your restaurant control panel account details to
+    the right.
+  = render('shared/error_messages', target: @location_session)
+.four.columns.omega
+  = form_for(@location_session, url: control_panel_path) do |f|
+    = f.label(:login)
+    = f.text_field(:login)
+    = f.label(:password)
+    = f.password_field(:password)
+    = f.label(:remember_me, class: 'single') do
+      = f.check_box(:remember_me)
+      %span Remember me
+    %button.full-width{ type: 'submit' }
+      %i.icon-login Login
