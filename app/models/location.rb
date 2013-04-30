@@ -38,13 +38,13 @@ class Location < ActiveRecord::Base
     in: LocationsHelper::order_option_values
   validates_inclusion_of :state, in: LocationsHelper::us_state_codes
   validates_numericality_of :sales_tax, greater_than_or_equal_to: 0.0,
-    :less_than_or_equal_to: 999999.99
+    less_than_or_equal_to: 999999.99
   validates_numericality_of :minimum_total, greater_than_or_equal_to: 0.0,
-    :less_than_or_equal_to: 9999999999.99
+    less_than_or_equal_to: 9999999999.99
   validates_numericality_of :delivery_fee, greater_than_or_equal_to: 0.0,
-    :less_than_or_equal_to: 99999999999.999
+    less_than_or_equal_to: 99999999999.999
   validates_numericality_of :max_distance, greater_than_or_equal_to: 0.0,
-    :less_than_or_equal_to: 99999999999.999
+    less_than_or_equal_to: 99999999999.999
   validates_plausible_phone :phone
   validates_inclusion_of :timezone, :in => ActiveSupport::TimeZone.zones_map(&:to_s)
 
@@ -65,7 +65,6 @@ class Location < ActiveRecord::Base
     self.time_open_thursday ||= '09:00:00'
     self.time_open_friday ||= '09:00:00'
     self.time_open_saturday ||= '09:00:00'
-
     self.time_close_sunday ||= '22:00:00'
     self.time_close_monday ||= '22:00:00'
     self.time_close_tuesday ||= '22:00:00'

@@ -10,6 +10,7 @@ class Item < ActiveRecord::Base
 
   validates_length_of :name, in: 2..128
   validates_length_of :description, in: 0..512
-  validates_numericality_of :price, greater_than_or_equal_to: 0.0
+  validates_numericality_of :price, greater_than_or_equal_to: 0.0,
+    less_than_or_equal_to: 9999999999.99
   validates_inclusion_of :order_options, in: ItemsHelper::order_option_values
 end

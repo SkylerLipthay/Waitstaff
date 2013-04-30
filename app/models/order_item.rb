@@ -7,5 +7,6 @@ class OrderItem < ActiveRecord::Base
 
   validates_numericality_of :quantity, greater_than_or_equal_to: 1
   validates_length_of :instructions, in: 0..512
-  validates_numericality_of :base_price, greater_than_or_equal_to: 0.0
+  validates_numericality_of :base_price, greater_than_or_equal_to: 0.0,
+    less_than_or_equal_to: 9999999999.99
 end
