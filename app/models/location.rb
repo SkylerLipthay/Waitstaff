@@ -37,10 +37,14 @@ class Location < ActiveRecord::Base
   validates_inclusion_of :order_options,
     in: LocationsHelper::order_option_values
   validates_inclusion_of :state, in: LocationsHelper::us_state_codes
-  validates_numericality_of :sales_tax, greater_than_or_equal_to: 0.0
-  validates_numericality_of :minimum_total, greater_than_or_equal_to: 0.0
-  validates_numericality_of :delivery_fee, greater_than_or_equal_to: 0.0
-  validates_numericality_of :max_distance, greater_than_or_equal_to: 0.0
+  validates_numericality_of :sales_tax, greater_than_or_equal_to: 0.0,
+    :less_than_or_equal_to: 999999.99
+  validates_numericality_of :minimum_total, greater_than_or_equal_to: 0.0,
+    :less_than_or_equal_to: 9999999999.99
+  validates_numericality_of :delivery_fee, greater_than_or_equal_to: 0.0,
+    :less_than_or_equal_to: 99999999999.999
+  validates_numericality_of :max_distance, greater_than_or_equal_to: 0.0,
+    :less_than_or_equal_to: 99999999999.999
   validates_plausible_phone :phone
   validates_inclusion_of :timezone, :in => ActiveSupport::TimeZone.zones_map(&:to_s)
 
