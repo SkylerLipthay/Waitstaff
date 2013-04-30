@@ -1,0 +1,27 @@
+%h2 Calendar
+%ul.add-bottom
+  %li
+    %a{ href: locations_path }
+      %i.icon-left-open Back to locations
+  %li
+    %a{ href: new_location_day_path(@location.id) }
+      %i.icon-plus New special day
+%table
+  %thead
+    %tr
+      %th Date
+      %th Status
+      %th Options
+  %tbody
+    - @days.each do |day|
+      %tr
+        %td= day.date.strftime('%b %-d, %Y')
+        %td= day.closed ? 'Closed' : 'Open'
+        %td.options
+          = link_to(edit_location_day_path(@location.id, day.id)) do
+            %i.icon-edit Edit
+          = link_to(location_day_path(@location.id, day.id), method: :delete, confirm: 'This action is irreversible. Are you sure you would like to delete this item?') do
+            %i.icon-trash Delete
+.pagination
+  .page_info= page_entries_info @days
+  = will_paginate @days

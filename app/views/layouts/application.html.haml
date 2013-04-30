@@ -46,7 +46,7 @@
               %a{ href: edit_account_path, class: ('active' if current_controller?('users', ['edit', 'update'])) }
                 %i.icon-cog Account
             %li
-              %a{ href: locations_path, class: ('active' if current_controller?('locations')) }
+              %a{ href: locations_path, class: ('active' if current_controller?('locations') || current_controller?('days')) }
                 %i.icon-location Locations
             %li
               %a{ href: categories_path, class: ('active' if current_controller?('categories') || current_controller?('items')) }

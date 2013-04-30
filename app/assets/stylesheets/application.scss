@@ -49,7 +49,7 @@ footer {
   padding-top: 30px;
   border-top: 1px solid #ddd;
   color: #999;
-  font-size: 12px;
+  font-size: 13px;
   margin: 15px 0 30px 0;
 }
 
@@ -223,4 +223,33 @@ table {
   margin: 0;
   max-width: 100%;
   background: #fff;
+}
+
+select.time {
+  width: 90px;
+  display: inline;
+}
+
+select.date {
+  width: auto;
+  display: inline;
+}
+
+span.time-label {
+  font-size: 13px;
+  width: 80px;
+  display: inline-block;
+}
+
+span.time-to {
+  font-size: 13px;
+  width: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+label.time-check {
+  margin-left: 5px;
+  display: inline-block;
+  font-weight: normal;
 }

@@ -1,0 +1,8 @@
+%h2 Edit special day
+%ul.add-bottom
+  %li
+    %a{ href: location_days_path(@location.id) }
+      %i.icon-left-open Back to calendar
+= render('shared/error_messages', target: @day)
+= form_for(@day, url: location_day_path(@location.id, @day.id)) do |f|
+  = render(partial: 'form', object: f)

@@ -6,6 +6,7 @@
 = form.label(:price, 'Price ($)')
 = form.text_field(:price, value: number_with_precision(@item.price, precision: 2))
 = form.label(:order_options, 'Order options')
+%p.description If you only have either delivery or takeout enabled for this location and the below option is opposing, the item will not be available.
 = form.select(:order_options, ItemsHelper::order_options)
 - if current_user.option_groups.count > 0
   %fieldset

@@ -11,7 +11,7 @@ class LocationSessionsController < ApplicationController
   def create
     @location_session = LocationSession.new(params[:location_session])
     if @location_session.save
-      redirect_to(restaurant_url)
+      redirect_to(orders_url)
     else
       render(:show)
     end

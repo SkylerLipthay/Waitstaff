@@ -105,3 +105,24 @@ en:
       success: 'Item details updated'
     destroy:
       success: 'Item destroyed'
+  orders:
+    complete:
+      success: 'Order marked as complete'
+  past_orders:
+    incomplete:
+      success: 'Order marked as incomplete'
+  days:
+    date:
+      invalid: 'is invalid'
+    index:
+      title: 'Calendar'
+    new:
+      'New special day'
+    create:
+      success: 'Special day created successfully'
+    edit:
+      'Edit special day'
+    update:
+      success: 'Special day details updated'
+    destroy:
+      success: 'Special day destroyed'

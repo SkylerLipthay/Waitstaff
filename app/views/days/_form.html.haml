@@ -1,0 +1,15 @@
+%label Date
+= form.date_select(:date, {order: [:month, :day, :year]}, class: 'date')
+%label Hours
+.time-opt
+  = form.time_select(:open, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %span.time-to to
+  = form.time_select(:close, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %label.time-check
+    = form.check_box(:closed)
+    Closed
+%button.full-width{ type: 'submit' }
+  - if form.object.new_record?
+    %i.icon-plus Create special day
+  - else
+    %i.icon-edit Save changes

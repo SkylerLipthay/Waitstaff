@@ -1,0 +1,26 @@
+%h2 Order Queue
+%table
+  %thead
+    %tr
+      %th #
+      %th Time
+      %th Type
+      %th Price
+      %th Options
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.number
+        %td
+          = time_ago_in_words(order.updated_at.in_time_zone(@zone)).capitalize
+          ago
+        %td= order.delivery ? 'Delivery' : 'Takeout'
+        %td= number_to_currency(order.total)
+        %td.options
+          = link_to(order_path(order.id)) do
+            %i.icon-info-circle Info
+          = link_to(complete_order_path(order.id)) do
+            %i.icon-ok Mark Complete
+.pagination
+  .page_info= page_entries_info @orders
+  = will_paginate @orders

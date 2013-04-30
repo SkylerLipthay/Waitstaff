@@ -12,17 +12,13 @@
       %header.sixteen.columns.alpha
         .eight.columns.alpha
           %h1
-            = link_to(svg_tag('logo', 'Waitstaff'), current_restaurant ? restaurant_path : root_path)
+            = link_to(svg_tag('logo', 'Waitstaff'), current_restaurant ? orders_path : root_path)
         %nav.eight.columns.omega
           %ul
             - if current_restaurant
               %li
                 = link_to(control_panel_path, :method => :delete) do
                   %i.icon-logout Logout
-            - if current_user
-              %li
-                = link_to(account_path) do
-                  %i.icon-user Dashboard
       - if !flash.empty?
         .sixteen.columns
           %ul.flashes
@@ -32,6 +28,13 @@
                   %i.icon-info-circle{ class: key }= msg
       - if current_restaurant
         .four.columns.alpha
+          %ul.side-nav
+            %li
+              %a{ href: orders_path, class: ('active' if current_controller?('orders')) }
+                %i.icon-food Order Queue
+            %li
+              %a{ href: past_orders_path, class: ('active' if current_controller?('past_orders')) }
+                %i.icon-clock Order History
         .twelve.columns.omega
           = yield
       - else

@@ -17,8 +17,8 @@
         %td= location.address
         %td= "#{location.city}, #{location.state}"
         %td.options
-          = link_to('#') do
-            %i.icon-user Login
+          = link_to(location_days_path(location.id)) do
+            %i.icon-calendar Calendar
           = link_to(location_path(location.id)) do
             %i.icon-food Menu
           = link_to(edit_location_path(location.id)) do

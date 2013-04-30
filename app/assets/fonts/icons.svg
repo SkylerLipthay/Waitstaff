@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20110222 at Mon Apr 29 15:31:37 2013
+Created by FontForge 20110222 at Tue Apr 30 12:37:31 2013
  By root
 Copyright (C) 2012 by original authors @ fontello.com
 </metadata>
@@ -19,7 +19,7 @@ Copyright (C) 2012 by original authors @ fontello.com
     bbox="15 -150 1086 850"
     underline-thickness="50"
     underline-position="-100"
-    unicode-range="U+E700-E711"
+    unicode-range="U+E700-E712"
   />
 <missing-glyph horiz-adv-x="364" 
 d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
@@ -88,5 +88,7 @@ t5 -12.5v-36q0 -7 -5 -12.5t-13 -5.5h-535q-7 0 -12.5 5.5t-5.5 12.5z" />
     <glyph glyph-name="uniE711" unicode="&#xe711;" horiz-adv-x="1101" 
 d="M104 64q-37 0 -63 26.5t-26 63.5v607q0 37 26 63t63 26h893q37 0 63 -26t26 -63v-607q0 -37 -26 -63.5t-63 -26.5h-303q0 -31 26 -83q9 -17 9 -24q0 -14 -10.5 -25t-24.5 -11h-286q-14 0 -25 11t-11 25q0 9 9 25q27 49 27 82h-304zM86 296q0 -17 18 -17h893q18 0 18 17
 v465q0 7 -5.5 12.5t-12.5 5.5h-893q-8 0 -13 -5.5t-5 -12.5v-465z" />
+    <glyph glyph-name="uniE712" unicode="&#xe712;" horiz-adv-x="895" 
+d="M15 332q0 22 16 38l76 76q16 16 37 16q22 0 38 -16l164 -165l367 367q16 16 37 16q22 0 38 -16l76 -76q16 -16 16 -38t-16 -38l-480 -480q-15 -15 -38 -15q-22 0 -37 15l-278 278q-16 16 -16 38z" />
   </font>
 </defs></svg>

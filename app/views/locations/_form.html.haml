@@ -17,6 +17,8 @@
 = form.select(:state, LocationsHelper::us_states)
 = form.label(:zip_code)
 = form.text_field(:zip_code)
+= form.label(:timezone)
+= form.time_zone_select(:timezone, ActiveSupport::TimeZone.us_zones, :default => "Pacific Time (US & Canada)")
 = form.label(:phone)
 = form.text_field(:phone)
 = form.label(:website)
@@ -26,6 +28,64 @@
 = form.text_field(:sales_tax)
 = form.label(:minimum_total, 'Minimum order subtotal ($)')
 = form.text_field(:minimum_total, value: number_with_precision(@location.minimum_total, precision: 2))
+%label Typical hours
+.time-opt
+  %span.time-label Sunday
+  = form.time_select(:time_open_sunday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %span.time-to to
+  = form.time_select(:time_close_sunday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %label.time-check
+    = form.check_box(:closed_sunday)
+    Closed
+.time-opt
+  %span.time-label Monday
+  = form.time_select(:time_open_monday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %span.time-to to
+  = form.time_select(:time_close_monday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %label.time-check
+    = form.check_box(:closed_monday)
+    Closed
+.time-opt
+  %span.time-label Tuesday
+  = form.time_select(:time_open_tuesday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %span.time-to to
+  = form.time_select(:time_close_tuesday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %label.time-check
+    = form.check_box(:closed_tuesday)
+    Closed
+.time-opt
+  %span.time-label Wednesday
+  = form.time_select(:time_open_wednesday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %span.time-to to
+  = form.time_select(:time_close_wednesday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %label.time-check
+    = form.check_box(:closed_wednesday)
+    Closed
+.time-opt
+  %span.time-label Thursday
+  = form.time_select(:time_open_thursday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %span.time-to to
+  = form.time_select(:time_close_thursday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %label.time-check
+    = form.check_box(:closed_thursday)
+    Closed
+.time-opt
+  %span.time-label Friday
+  = form.time_select(:time_open_friday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %span.time-to to
+  = form.time_select(:time_close_friday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %label.time-check
+    = form.check_box(:closed_friday)
+    Closed
+.time-opt
+  %span.time-label Saturday
+  = form.time_select(:time_open_saturday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %span.time-to to
+  = form.time_select(:time_close_saturday, {combined: true, time_separator: '', minute_step: 15}, class: 'time')
+  %label.time-check
+    = form.check_box(:closed_saturday)
+    Closed
+
 = form.label(:order_options, 'Order options')
 = form.select(:order_options, LocationsHelper::order_options)
 #_location_delivery_options

@@ -1,5 +1,5 @@
-%h2= current_user.business_name
-%ul
-  %li= pluralize(current_user.locations.count, 'location')
-  %li= pluralize(current_user.categories.count, 'menu category')
-  %li= pluralize(current_user.items.count, 'menu item')
+%h2
+  Welcome,
+  = current_user.business_name
+%p.small
+  Get started by selecting a menu to the left.

@@ -1,0 +1,24 @@
+%h2 Order History
+%table
+  %thead
+    %tr
+      %th #
+      %th Completion
+      %th Customer
+      %th Price
+      %th Options
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.number
+        %td= order.updated_at.in_time_zone(@zone).strftime('%b %-d, %Y, %-l:%M %p')
+        %td= order.full_name
+        %td= number_to_currency(order.total)
+        %td.options
+          = link_to(past_order_path(order.id)) do
+            %i.icon-info-circle Info
+          = link_to(incomplete_past_order_path(order.id)) do
+            %i.icon-ok Mark Incomplete
+.pagination
+  .page_info= page_entries_info @orders
+  = will_paginate @orders

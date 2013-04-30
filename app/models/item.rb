@@ -3,6 +3,8 @@ class Item < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :option_groups
   has_and_belongs_to_many :locations
+  has_many :order_items
+  has_many :orders, through: :order_items
 
   attr_accessible :user_id, :name, :description, :price, :order_options, :option_group_ids
 

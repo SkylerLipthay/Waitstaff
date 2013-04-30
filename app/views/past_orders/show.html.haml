@@ -1,0 +1,29 @@
+%h2= "Order \##{@order.number}"
+%ul.half-bottom
+  %li
+    %a{ href: past_orders_path }
+      %i.icon-left-open Back to order history
+%p.remove-bottom= @order.full_name
+%p.remove-bottom= @order.address
+%p= "#{@order.city}, #{@order.state} #{@order.zip_code}"
+%p{class: @order.complete ? 'remove-bottom' : ''}
+  Placed:
+  = @order.created_at.in_time_zone(@zone).strftime('%B %-d, %Y, %-l:%M %p')
+- if @order.complete
+  %p
+    Completion:
+    = @order.updated_at.in_time_zone(@zone).strftime('%B %-d, %Y, %-l:%M %p')
+%h3 Order Items
+%table
+  %thead
+    %tr
+      %th Item
+      %th Extras
+      %th Special instructions
+  %tbody
+    - @order.order_items.each do |order_item|
+      %tr
+        %td= order_item.item.name
+        %td
+          = order_item.options.map { |o| o.name }.join(', ')
+        %td= order_item.instructions
