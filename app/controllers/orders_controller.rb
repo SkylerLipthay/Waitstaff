@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_filter :require_restaurant
-  before_filter :get_resource, :only => [:complete]
+  before_filter :get_resource, :only => [:show, :complete]
 
   layout 'control_panel'
 
@@ -9,6 +9,9 @@ class OrdersController < ApplicationController
     @zone = ActiveSupport::TimeZone.new(current_restaurant.timezone)
     @orders = current_restaurant.orders.where(complete: false).
       page(params[:page]).order(sort)
+  end
+
+  def show
   end
 
   def complete
