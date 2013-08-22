@@ -1,5 +1,3 @@
-# Waitstaff
-
 ![Waitstaff in action](www/screenshot.png?raw=true)
 
 > Waitstaff is a service that allows restaurants to easily extend online ordering options to their customers. By signing up, restaurants can bring their business to the masses and generate a mobile applications for ordering on the go. In addition, Waitstaff provides a simple and complete API for your existing restaurant website to connect to for online ordering and financial management.
